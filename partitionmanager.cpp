@@ -1486,7 +1486,7 @@ int TWPartitionManager::Resize_By_Path(string Path, bool Display_Error) {
 void TWPartitionManager::Update_System_Details(void) {
 	std::vector<TWPartition*>::iterator iter;
 	int data_size = 0;
-
+        sleep(3);
 	gui_msg("update_part_details=Updating partition details...");
 	for (iter = Partitions.begin(); iter != Partitions.end(); iter++) {
 		(*iter)->Update_Size(true);
@@ -1577,12 +1577,14 @@ void TWPartitionManager::Post_Decrypt(const string& Block_Device) {
 			gui_msg(Msg("decrypt_success_dev=Data successfully decrypted, new block device: '{1}'")(Block_Device));
 		} else {
 			gui_msg("decrypt_success_nodev=Data successfully decrypted");
+                        property_set("twrp.decryptdone", "true");
+                        sleep(5);
 		}
 		dat->Setup_File_System(false);
 		dat->Current_File_System = dat->Fstab_File_System; // Needed if we're ignoring blkid because encrypted devices start out as emmc
 
 		// Sleep for a bit so that the device will be ready
-		sleep(1);
+		sleep(3);
 		if (dat->Has_Data_Media && dat->Mount(false) && TWFunc::Path_Exists("/data/media/0")) {
 			dat->Storage_Path = "/data/media/0";
 			dat->Symlink_Path = dat->Storage_Path;
