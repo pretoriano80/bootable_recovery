@@ -694,5 +694,7 @@
 		<string name="include_kernel_log">Include Kernel Log</string>
 		<string name="sha2_chk">Use SHA2 for hashing</string>
 		<string name="unable_set_boot_slot">Error changing bootloader boot slot to {1}</string>
+		<string name="openkirin_hdr">OEM Settings</string>
+		<string name="tw_exclude_oem_path_chk">Exclude OEM path from data wipe</string>
 	</resources>
 </language>

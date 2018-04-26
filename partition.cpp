@@ -1065,6 +1065,7 @@ void TWPartition::Setup_Data_Media() {
 	Is_Storage = true;
 	Storage_Path = Mount_Point + "/media";
 	Symlink_Path = Storage_Path;
+	int Exclude_OEM_Path;
 	if (Mount_Point == "/data") {
 		Is_Settings_Storage = true;
 		if (strcmp(EXPAND(TW_EXTERNAL_STORAGE_PATH), "/sdcard") == 0) {
@@ -2303,6 +2304,10 @@ bool TWPartition::Wipe_Data_Without_Wiping_Media_Func(const string& parent __unu
 			dir = parent;
 			dir.append(de->d_name);
 			if (wipe_exclusions.check_skip_dirs(dir)) {
+				LOGINFO("skipped '%s'\n", dir.c_str());
+				continue;
+			}
+			if (strcmp(dir.c_str(), "/data/hw_init") == 0 && DataManager::GetIntValue("tw_exclude_oem_path") == 1) {
 				LOGINFO("skipped '%s'\n", dir.c_str());
 				continue;
 			}

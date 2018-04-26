@@ -3060,7 +3060,7 @@
 			<template name="tabs_settings"/>
 
 			<fill color="%text_color%">
-				<placement x="0" y="%row_tab_y%" w="%tab5_width%" h="%tab_indicator_height%"/>
+				<placement x="0" y="%row_tab_y%" w="%tab6_width%" h="%tab_indicator_height%"/>
 			</fill>
 
 			<listbox style="scrolllist">
@@ -3143,7 +3143,7 @@
 			<template name="tabs_settings"/>
 
 			<fill color="%text_color%">
-				<placement x="%tab5_col2_x%" y="%row_tab_y%" w="%tab5_width%" h="%tab_indicator_height%"/>
+				<placement x="%tab6_col2_x%" y="%row_tab_y%" w="%tab6_width%" h="%tab_indicator_height%"/>
 			</fill>
 
 			<listbox>
@@ -3255,7 +3255,7 @@
 			<template name="tabs_settings"/>
 
 			<fill color="%text_color%">
-				<placement x="%tab5_col3_x%" y="%row_tab_y%" w="%tab5_width%" h="%tab_indicator_height%"/>
+				<placement x="%tab6_col3_x%" y="%row_tab_y%" w="%tab6_width%" h="%tab_indicator_height%"/>
 			</fill>
 
 			<button>
@@ -3326,7 +3326,7 @@
 			<template name="tabs_settings"/>
 
 			<fill color="%text_color%">
-				<placement x="%tab5_col4_x%" y="%row_tab_y%" w="%tab5_width%" h="%tab_indicator_height%"/>
+				<placement x="%tab6_col4_x%" y="%row_tab_y%" w="%tab6_width%" h="%tab_indicator_height%"/>
 			</fill>
 
 			<slidervalue>
@@ -3374,7 +3374,7 @@
 			<template name="tabs_settings"/>
 
 			<fill color="%text_color%">
-				<placement x="%tab5_col5_x%" y="%row_tab_y%" w="%tab5_width%" h="%tab_indicator_height%"/>
+				<placement x="%tab6_col5_x%" y="%row_tab_y%" w="%tab6_width%" h="%tab_indicator_height%"/>
 			</fill>
 
 			<listbox>
@@ -3397,6 +3397,44 @@
 
 			<action>
 				<touch key="back" />
+				<action function="page">main</action>
+			</action>
+		</page>
+
+		<page name="settings_openkirin">
+			<template name="page"/>
+
+			<text style="text_l">
+				<placement x="%col1_x_header%" y="%row3_header_y%"/>
+				<text>{@settings_hdr=Settings}</text>
+			</text>
+
+			<text style="text_m">
+				<placement x="%col1_x_header%" y="%row4_header_y%"/>
+				<text>{@openkirin_hdr=OpenKirin Settings}</text>
+			</text>
+
+			<template name="tabs_settings"/>
+
+			<fill color="%text_color%">
+				<placement x="%tab6_col6_x%" y="%row_tab_y%" w="%tab6_width%" h="%tab_indicator_height%"/>
+			</fill>
+
+			<listbox style="scrolllist">
+				<placement x="%indent%" y="%row3a_y%" w="%content_width%" h="%listbox_settings_height%"/>
+				<icon selected="checkbox_true" unselected="checkbox_false"/>
+				<listitem name="{@tw_exclude_oem_path_chk=Exclude OEM path from data wipe}">
+					<data variable="tw_exclude_oem_path"/>
+				</listitem>
+			</listbox>
+
+			<action>
+				<touch key="home"/>
+				<action function="page">main</action>
+			</action>
+
+			<action>
+				<touch key="back"/>
 				<action function="page">settings</action>
 			</action>
 		</page>

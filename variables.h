@@ -165,4 +165,6 @@
 #define SCRIPT_FILE_TMP "/tmp/openrecoveryscript"
 #define TMP_LOG_FILE "/tmp/recovery.log"
 
+#define TW_EXCLUDE_OEM_PATH	    "tw_exclude_oem_path"
+
 #endif  // _VARIABLES_HEADER_

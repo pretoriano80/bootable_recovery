@@ -897,6 +897,9 @@ void DataManager::SetDefaultValues()
 
         mData.SetValue("tw_enable_adb_backup", "0");
 
+	// OpenKirin persistent values
+        mPersist.SetValue("tw_exclude_oem_path", "1");
+
 	pthread_mutex_unlock(&m_valuesLock);
 }
 
